@@ -1,0 +1,54 @@
+
+h1{
+   margin: auto;
+   text-align: center;
+}
+
+p1{
+    margin: auto;
+    text-align:left;
+    padding-top:0px;
+}
+
+svg {
+  font: 10px sans-serif;
+}
+
+.caption {
+  font-weight: bold;
+}
+
+.key path {
+  display: none;
+}
+
+.key line {
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.county {
+  fill: #eee;
+}
+.county-border {
+  fill: none;
+  stroke: #000;
+  stroke-opacity: .3;
+}
+
+.state-border {
+  fill: none;
+  stroke: #333;
+}
+
+.tract {
+  fill: #ccc;
+}
+
+
+.tract-border {
+  fill: none;
+  stroke: #333;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}

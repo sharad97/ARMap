@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Meta Tag -->
+        <meta charset="utf-8">
+        <title>D3 Scatterplot</title>
+        <!-- CSS Stylesheet -->
+        <link rel="stylesheet" type="text/css" href="Arkansas.css">
+        <script src="//d3js.org/topojson.v1.min.js"></script>
+        <!-- D3.js Source -->
+        <script type= "text/javascript" src="http://d3js.org/d3.v3.min.js"></script>       
+    </head>
+    <body>
+		<h1>Arkansas Population Density, 2016</h1>
+        
+        <div>
+			<p>Color Options:
+            <input name="updateButton"
+                   type="button"
+                   value="Color1"
+                   onclick="updateData1()" />
+            
+            <input name="updateButton" 
+                   type="button"
+                   value="Color2"
+                   onclick="updateData2()" />
+			</p>
+        
+            <p>State Boundary:
+                <button id="button">On</button>
+                <button id="button1">Off</button></p>
+       
+            <p>Census Tract Boundary:  
+                <button id="button2">On</button>
+				<button id="button3">Off</button></p>
+        </div>
+        <div>
+            <script type="text/javascript" src="Arkansas.js"></script>
+        </div>
+        
+        <p1>
+            <ul>
+                <li>Name:Sharad Shrestha</li>
+                <li>Instructor: Suresh Lodha</li>
+                <li>CMPS 165: Data programming for Visualization</li>
+                <li>Fall 2016</li>
+            </ul>
+        </p1>
+    </body>
+</html>
