@@ -1,0 +1,30 @@
+body{
+    background-color: #E6E6E6;
+    margin: auto;
+    position:relative;
+    text-align:center;
+}
+
+p{
+    text-indent: 40px;
+    position: relative;
+}
+
+
+//Add .axis path and .axis line commans as described in the book (1 point)
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis text  {
+    font: 10px Times;
+    font-size: 12px;
+    font-weight: bold;
+}
