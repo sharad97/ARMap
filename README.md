@@ -20,3 +20,17 @@ https://sharad97.github.io/CMPS-165/BarChart/BarGraph.html
 #Multiline Chart
 https://sharad97.github.io/CMPS-165/MultiLine/MultiLine.html
 
+
+
+
+Extra Credit
+
+https://sharad97.github.io/CMPS-165/d3.v4/PercentageChange.html
+
+https://sharad97.github.io/CMPS-165/d3.v4/PercentageChange2.html
+
+https://sharad97.github.io/CMPS-165/d3.v4/plant.html
+
+https://sharad97.github.io/CMPS-165/d3.v4/scatterplot.html
+
+https://sharad97.github.io/CMPS-165/d3.v4/geo.html
