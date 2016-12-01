@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Earthquakes</title>
+<meta charset="utf-8">
+				
+<script src="d3-tile.v0.0.min.js"></script>	
+<script src="topojson.v1.min.js"></script>
+<script src="moment.min.js"></script>
+<script src="underscore-min.js"></script>
+<script src="queue.v1.min.js"></script>
+<script src="d3.v3.min.js"></script>
+<script src="d3.slider.js"></script>
+<script type="text/javascript" src="range-slider.js"></script>
+
+<script>	
+//d3.geo.tile
+d3.geo.tile=function(){function t(){var t=Math.max(Math.log(n)/Math.LN2-8,0),h=Math.round(t+e),o=Math.pow(2,t-h+8),u=[(r[0]-n/2)/o,(r[1]-n/2)/o],l=[],c=d3.range(Math.max(0,Math.floor(-u[0])),Math.max(0,Math.ceil(a[0]/o-u[0]))),M=d3.range(Math.max(0,Math.floor(-u[1])),Math.max(0,Math.ceil(a[1]/o-u[1])));return M.forEach(function(t){c.forEach(function(a){l.push([a,t,h])})}),l.translate=u,l.scale=o,l}var a=[960,500],n=256,r=[a[0]/2,a[1]/2],e=0;return t.size=function(n){return arguments.length?(a=n,t):a},t.scale=function(a){return arguments.length?(n=a,t):n},t.translate=function(a){return arguments.length?(r=a,t):r},t.zoomDelta=function(a){return arguments.length?(e=+a,t):e},t};	
+</script>	
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-941940-28']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>	
+<script src="topojson.js"></script>	
+<link rel="stylesheet" href="d3.slider.css" />
+<link rel="stylesheet" href="pract.css" />
+
+</head>
+<body>
+<div>
+<h1>Earthquakes</h1>
+</div>
+	   <div>
+		   <input name="updateButton"
+                   type="button"
+                   value="Earthquake Since 1900 Above 7 Magnitude"
+                   onclick="updateData2()" />
+		   <input name="updateButton"
+                   type="button"
+                   value="Earthquake 24 Hour Feed Above 1 Magnitude"
+                   onclick="updateData1()" />
+		   <input name="updateButton"
+                   type="button"
+                   value="5 Most Strongest Earthqauke in Record"
+                   onclick="updateData3()" />
+		   
+		   <button class="button" id="button1">Earthquake Hazard Map</button>
+		   <a href="h.html" onclick="return popitup('h.html')" class="button">Compare Earthquake Death to Other Natural Catastrophes</a>
+        </div>
+	
+
+<div id="slider3"></div>
+<div id="map"></div>	
+<div><script type="text/javascript" src="u.js"></script></div>
+
+  <script language="javascript" type="text/javascript">
+<!--
+function popitup(url) {
+	newwindow=window.open(url,'name','height=600,width=1200');
+	if (window.focus) {newwindow.focus()}
+	return false;
+}
+	</script>	
+<h4>Sources:</h4>
+<p><a href="http://bl.ocks.org/KoGor/5994804">http://bl.ocks.org/KoGor/5994804</a>
+<p><a href="http://bl.ocks.org/mbostock/4503672">http://bl.ocks.org/mbostock/4503672</a>
+	
+</body>	
+</html>
