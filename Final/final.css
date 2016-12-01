@@ -1,0 +1,241 @@
+body { 
+  color: #666; 
+  background: white; 
+  font: normal 10px "Helvetica Neue", Helvetica, sans-serif; 
+  margin:auto;
+  position: relative;
+  text-align: center;	
+}
+
+#map {
+  border:2px solid #000;
+  width:1160px;
+  height:580px;
+  margin: 5em; 	
+}
+
+.country {
+  fill: #41ae76;
+  stroke: #fff;
+  stroke-width: .1px;
+  stroke-linejoin: round;
+  cursor: pointer;
+}
+
+.country:hover{
+	fill:lightgreen;
+}
+
+.hidden { 
+  display: none; 
+}
+
+
+.tooltip {
+	width: auto;
+    height: auto;
+    font: 14px sans-serif;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 3px 3px 3px 3px;
+	position:absolute;			
+    text-align:left;			    				
+    background: SeaGreen;	
+  	border: solid black 2px;
+    border-radius: 8px;			
+    pointer-events: none;
+    color:white;
+}
+
+path {
+  fill: none;
+  stroke: #333;
+  stroke-width: .5px;
+}
+
+.land-boundary {
+  stroke-width: 1px;
+}
+
+.county-boundary {
+  stroke: #ddd;
+}
+
+.site {
+	fill: red;
+	opacity: 0.9;
+}
+
+#slider3 {
+  margin: 15px 0px 10px 50px;
+  width: 1150px;
+}
+
+
+
+.tectonic {
+  fill: none;
+  stroke: red;
+  opacity: 0.9;
+}
+
+
+svg {
+    margin: 0 auto;
+    display: block;
+}
+
+
+.sphere {
+    fill: #bbb;
+}
+
+
+.overlay {
+    fill: none;
+    pointer-events: all;
+}
+
+
+.water {
+  fill: #ccece6;
+}
+
+
+.land {
+  fill: #41ae76;
+  stroke: green;
+  stroke-width: 0.7px;
+}
+
+
+.focused {
+  fill: lightgreen;
+}
+
+
+select {
+  position: absolute;      
+  top: 200px;
+  left: 980px;
+  border: solid #ccc 1px;
+  padding: 3px;
+  box-shadow: inset 1px 1px 2px #ddd8dc;
+}
+
+
+.countryTooltip {
+  position: absolute;
+  display: none;
+  pointer-events: none;
+  background: #fff;
+  padding: 5px;
+  text-align: left;
+  border: solid #ccc 1px;
+  color: #666;
+  font-size: 14px;
+  font-family: sans-serif;
+}
+
+
+
+.button {
+  color:#08233e;
+    display:inline-block;
+  font:2.4em Futura, ‘Century Gothic’, AppleGothic, sans-serif;
+  font-size:10px;
+  padding:14px;
+  background:url(overlay.png) repeat-x center #ffcc00;
+  background-color:rgba(255,204,0,1);
+  border:1px solid #ffcc00;
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+  border-radius:10px;
+  border-bottom:1px solid #9f9f9f;
+  -moz-box-shadow:inset 0 1px 0 rgba(255,255,255,0.5);
+  -webkit-box-shadow:inset 0 1px 0 rgba(255,255,255,0.5);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.5);
+  cursor:pointer;
+ }
+
+.button:hover {
+  background-color:rgba(255,204,0,0.8);
+ }
+
+
+
+.foot-links a, .foot-links p{
+    display: block;
+    color: rgb(63, 63, 63);
+    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    text-decoration: none;
+    font-family: OpenSansRegular, Arial, sans-serif;
+    font-size: 13px;
+    color: rgb(63, 63, 63);
+    padding-bottom: 5px;
+    text-shadow: rgb(255, 255, 255) 1px 1px 0px;
+
+  }
+
+a:link {
+    color: blue;
+  }
+
+
+.foot-links{
+    padding-top: 5px;
+    text-align: left;
+  }
+
+
+#footer{
+    background: rgb(241, 241, 241);
+    border-top: 1px solid rgb(222, 222, 222);
+    margin-top: -2px;
+    padding-top: 0px;
+    padding-bottom: 5px;
+    padding-left: 25px;
+    margin-left: 85px; 
+    margin-right: 85px;
+    margin-bottom: 25px;
+  }
+
+h1{
+    font-family: gandhi_serifregular,"Georgia",Times New Roman,serif;
+    font-style: normal;
+    font-size: 4.0em;
+    line-height: 1.12 ;
+    letter-spacing: -0.9px;
+    margin-bottom: .5em;
+    margin-top: 0;
+    color: #222;
+    text-align: center;
+}
+
+
+
+ h3 {
+    font-size: 15px;
+     text-align: left;
+  }
+
+
+.col-sm-3 {
+  
+    text-decoration: none;   
+}
+
+p{
+     border-top: 1px solid rgb(222, 222, 222);
+    font-size: 15px;
+    padding-left: 10px;
+    line-height: 1.7;
+}
+
+p2{
+    font-size: 12px;
+}
+.row-1{
+    text-align: left;
+}

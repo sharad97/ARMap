@@ -1,1 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+		<title>Earthquakes</title>
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
+		<script src="d3-tile.v0.0.min.js"></script>
+		<script src="moment.min.js"></script>
+        <script src="underscore-min.js"></script>
+        <script src="queue.v1.min.js"></script>
+        <script src="d3.v3.min.js"></script>
+        <script src="d3.slider.js"></script>
+        <script src="topojson.js"></script>	
+        <link rel="stylesheet" href="d3.slider.css"/>
+        <link rel="stylesheet" href="final.css"/>
+
+        <script>
+            //d3.geo.tile
+            d3.geo.tile=function(){function t(){var t=Math.max(Math.log(n)/Math.LN2-8,0),h=Math.round(t+e),o=Math.pow(2,t-h+8),u=[(r[0]-n/2)/o,(r[1]-n/2)/o],l=[],c=d3.range(Math.max(0,Math.floor(-u[0])),Math.max(0,Math.ceil(a[0]/o-u[0]))),M=d3.range(Math.max(0,Math.floor(-u[1])),Math.max(0,Math.ceil(a[1]/o-u[1])));return M.forEach(function(t){c.forEach(function(a){l.push([a,t,h])})}),l.translate=u,l.scale=o,l}var a=[960,500],n=256,r=[a[0]/2,a[1]/2],e=0;return t.size=function(n){return arguments.length?(a=n,t):a},t.scale=function(a){return arguments.length?(n=a,t):n},t.translate=function(a){return arguments.length?(r=a,t):r},t.zoomDelta=function(a){return arguments.length?(e=+a,t):e},t};	
+        </script>
+        
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-941940-28']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+        
+        <script language="javascript" type="text/javascript">
+            function popitup(url) {
+                newwindow=window.open(url,'name','height=600,width=1200');
+                if (window.focus) {newwindow.focus()}
+                return false;
+            }
+        </script>
+    </head>
+    <body link="blue">
+        
+        <div > 
+            <h1>Earthquake Since 1900 Above 7 Magnitude</h1>
+        </div>    
+        <p>
+            Earthquake is a natural occurring event which occurs often and has huge impact in our lives. Earthquake destroys thousands of lives and properties every year. In this interactive visualization, it will show where each earthquake has occurred since 1900 above 7 magnitude in richter scale. I am using scientific data gathered by United States Geological Survey. 
+        </p>    
+        
+	   <div>
+		   <a href="h.html" onclick="return popitup('h.html')" class="button">Compare Earthquake Casualties to Other Natural Catastrophes</a>
+        </div>
+        
+        <h2><span id="slider3textmin">1900</span> - <span id="slider3textmax">2016</span></h2>
+        
+        <div id="slider3"></div>
+        
+        <div id="map"></div>
+        
+        <div><script type="text/javascript" src="final.js"></script></div>
+        
+        
+        <div>
+        
+        <div class='row'>
+        <div id="footer">
+          <div class="container">
+            <div class="row-1">
+              <h3> Created by: </h3>
+                <p2> Sharad Shrestha in collaboration with Suresh K Lodha, Shobhit Maheshwari and Ryan Brounley</p2> <br>
+                <h3>Created for: </h3><p2>CMPS165, Data Programming for Visualization, Fall 2016</p2>
+            </div>
+            <br>
+            <div class="col-sm-3">
+              <h3>
+                Files:
+              </h3>
+              <div class="foot-links">
+                  <li>index.html</li> 
+                  <li>data.json</li>
+                  <li>uStates.js</li> 
+                  <li>README</li>
+                  <li>data.csv</li>
+                  <li>custom.css</li>
+                  <li>result.csv</li>
+              </div>
+            </div><!--/col-sm-3-->
+            <div class="col-sm-3" style="margin-left: 75px";>
+              <h3>Data Sources:</h3>
+              <div class="foot-links">
+                <li>Earthquake Data Catalog</li>
+                <a href="https://earthquake.usgs.gov/earthquakes/search/" target="_blank">https://earthquake.usgs.gov/earthquakes/search/</a>
+                
+              </div>
+            </div>
+            <div class="col-sm-3" style="margin-left: 200px";>
+              
+                <h3> Code Sources:</h3>
+              <div class="foot-links">
+                <a href="http://bl.ocks.org/KoGor/5994804" target="_blank" >bl.ocks.org/KoGor</a>
+                 <a href="http://benheb.github.io/d3.slider/" target="_blank" >benheb.github.io/d3.slider</a>
+                  <a href="http://nvd3.org/examples/index.html" target="_blank" >nvd3.org/examples</a>
+                  <a href="https://bost.ocks.org/mike/bubble-map/" target="_blank" >bost.ocks.org/mike/bubble-map</a>
+              </div>
+            </div>
+          </div><!--/container-->
+        </div><!--/footer-->
+      </div><!--/row-->
+            
+	</div>
+        
+    </body>	
+</html>
