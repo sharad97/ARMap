@@ -44,8 +44,11 @@ body {
   	border: solid black 2px;
     border-radius: 8px;			
     pointer-events: none;
+    margin-left: 15px;
     color:white;
 }
+
+
 
 path {
   fill: none;
@@ -64,6 +67,11 @@ path {
 .site {
 	fill: red;
 	opacity: 0.9;
+}
+
+
+.site:hover {
+  fill: black ;
 }
 
 #slider3 {
