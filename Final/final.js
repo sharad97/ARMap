@@ -324,22 +324,22 @@ var displaySites = function(data) {
         return projection([d.lng, d.lat])[1];
       })
   	  .attr("r", function(d) { return d.mag * 1;})
-  .on("mousemove", function(d,i) {
-        var mouse = d3.mouse(svg.node()).map( function(d) { return parseInt(d); } );
-        tooltip
-          .classed("hidden", false)
-          .attr("style", "left:"+(mouse[0]+25)+"px;top:"+mouse[1]+"px")
-          .html("Location: " + (d.city)+ "<br>"
+      .on("mouseover", function (d) {
+            tooltip.transition()
+                .duration(200)
+                .style("opacity", 0.9);
+            tooltip.html("Location: " + (d.city)+ "<br>"
 				+ "Magnitude: " + d.mag + "<br>"
 				+ "Time: " + (d.time)+ "<br>"
 				+ "Depth: " + (d.depth)+ " km")
                 .style("left", (d3.event.pageX + 5) + "px")
                 .style("top", (d3.event.pageY - 28) + "px");
-      })
-      .on("mouseout",  function(d,i) {
-        tooltip.classed("hidden", true)
+        })
+        .on("mouseout", function (d) {
+            tooltip.transition()
+                .duration(500)
+                .style("opacity", 0);
         });
-  
   sites.exit()
     .transition().duration(200)
       .attr("r",0)
