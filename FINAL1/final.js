@@ -23,12 +23,8 @@ var svg = d3.select("#map").append("svg")
 		.call(d3.behavior.zoom().scaleExtent([1, 7]).on("zoom", redraw))
 		.append("g");
 
- function redraw() {
+function redraw() {
     svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
-      
-//    svg.selectAll("circle")
-//                .transition()
-//                .attr("r", 4 / d3.event.scale);
 }
                
 
@@ -158,7 +154,7 @@ function ready(error, world, countryData) {
     //Adding countries to select
     countryData.forEach(function (d) {
         countryById[d.id] = d.name;
-       })
+    })
       
 
     //Drawing countries on the globe
@@ -180,101 +176,101 @@ function ready(error, world, countryData) {
         .on("mouseout", function (d) {
             countryTooltip.style("opacity", 0)
                     .style("display", "none");
-        });	
+        });
  
 
 
 //Earthquake Data	
-  d3.tsv("rest_7771.txt")
-    .row(function(d) {
-      return {
-        id: d.id,
-        lat: parseFloat(d.latitude),
-        lng: parseFloat(d.longitude),
-        city: d.place,
-		mag: d.mag,
-		depth: d.depth,
-		time: moment(d.time,"YYYY-MM-DD'T'HH:mm:ss.SSS'z'").utc().format("YYYY-MM-DD HH:mm:ss"), 
-        created_at: moment(d.time,"YYYY-MM-DD'T'HH:mm:ss.SSS'z'").utc().format("YYYY")
-      };
-    })
-    .get(function(err, rows) {
-    	if (err) return console.error(err);
-
-      window.site_data = rows;
-    });
-
-
-
-var displaySites = function(data) {
-  var sites = g.selectAll(".site")
-      .data(data, function(d) {
-        return d.id;
-      });
-    
-    var rScale = d3.scale.sqrt()
-        .domain(d3.extent(window.site_data, function(d) { return d.mag; }))
-        .range([3, 15])    
-    
-  sites.enter()
-	  .append("circle")
-      .attr("class", "site")
-      .attr("cx", function(d) {
-        return projection([d.lng, d.lat])[0];
-      })
-      .attr("cy", function(d) {
-        return projection([d.lng, d.lat])[1];
-      })
-  	  .attr("r", function(d) { return rScale(d.mag)})
-      .on("mouseover", function (d) {
-            tooltip.transition()
-                .duration(200)
-                .style("opacity", 0.9);
-            tooltip.html("<b><center>"+(d.city)+ "</center></b>"+"<table>"
-+"<tr><td align='left'>Magnitude</td><td align='center'>:<td align='right'>" + d.mag + "</td></tr>"
-+ "<tr><td align='left'>Time</td><td align='center'>:<td align='right'>" +(d.time)+ "</td></tr>"
-+ "<tr><td align='left'>Depth</td><td align='center'>:<td align='right'>" +(d.depth)+ " km" +"</td></tr>"+"</table>")
-                .style("left", (d3.event.pageX + 5) + "px")
-                .style("top", (d3.event.pageY - 28) + "px");
+    d3.tsv("rest_7771.txt")
+        .row(function (d) {
+            return {
+                id: d.id,
+                lat: parseFloat(d.latitude),
+                lng: parseFloat(d.longitude),
+                city: d.place,
+		        mag: d.mag,
+		        depth: d.depth,
+		        time: moment(d.time, "YYYY-MM-DD'T'HH:mm:ss.SSS'z'").utc().format("YYYY-MM-DD HH:mm:ss"), 
+                created_at: moment(d.time,"YYYY-MM-DD'T'HH:mm:ss.SSS'z'").utc().format("YYYY")
+            };
         })
-        .on("mouseout", function (d) {
-            tooltip.transition()
-                .duration(500)
-                .style("opacity", 0);
+        .get(function (err, rows) {
+            if (err)
+            return console.error(err);
+
+            window.site_data = rows;
         });
-  sites.exit()
-    .transition()
-//      .duration(200)
-      .attr("r",0)
-      .remove();
+
+
+
+    var displaySites = function(data) {
+            var sites = g.selectAll(".site")
+                    .data(data, function (d) {
+                        return d.id;
+                    });
     
-};    
-
-
-
-var minDate = moment('1900-01-01', "YYYY MM DD").utc().format("YYYY");
-var maxDate = moment('2016-11-26', "YYYY MM DD").utc().format("YYYY");
-
-d3.select('#slider3').call(d3.slider()
- .axis(d3.svg.axis()
-	   .ticks(25)
-	   .tickSize(8)
-	   .tickFormat(d3.format(""))
-	  )
-	.min(minDate)
-	.max(maxDate)
-	.value([1955,1965])
-	.step(1,2,3,4,5,6,7,8,9,10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116)
-  	.on("slide", function(evt, value) {
-		d3.select('#slider3textmin').text(value[0]);  
-        d3.select('#slider3textmax').text(value[1]);
+            var rScale = d3.scale.sqrt()
+                    .domain(d3.extent(window.site_data, function (d) { return d.mag; }))
+                    .range([3, 15])
     
-   	var newData = _(site_data).filter( function(site) {			
-      	return (site.created_at >= value[0] && site.created_at <= value[1]);
-	})
-	displaySites(newData);
- 	}));
- };
+            sites.enter()
+	            .append("circle")
+                .attr("class", "site")
+                .attr("cx", function (d) {
+                    return projection([d.lng, d.lat])[0];
+                })
+                .attr("cy", function (d) {
+                    return projection([d.lng, d.lat])[1];
+                })
+                .attr("r", function (d) { return rScale(d.mag)})
+                .on("mouseover", function (d) {
+                    tooltip.transition()
+                        .duration(200)
+                        .style("opacity", 0.9);
+                    tooltip.html("<b><center>" + (d.city) + "</center></b>" + "<table>"
+                        + "<tr><td align='left'>Magnitude</td><td align='center'>:<td align='right'>" + d.mag + "</td></tr>"
+                        + "<tr><td align='left'>Time</td><td align='center'>:<td align='right'>" + (d.time) + "</td></tr>"
+                        + "<tr><td align='left'>Depth</td><td align='center'>:<td align='right'>" + (d.depth) + " km" + "</td></tr>" + "</table>")
+                        .style("left", (d3.event.pageX + 5) + "px")
+                        .style("top", (d3.event.pageY - 28) + "px");
+                })
+                .on("mouseout", function (d) {
+                    tooltip.transition()
+                           .duration(500)
+                           .style("opacity", 0);
+                });
+            sites.exit()
+                 .transition()
+                 .attr("r",0)
+                 .remove();
+    
+        };    
+
+
+
+    var minDate = moment('1900-01-01', "YYYY MM DD").utc().format("YYYY");
+    var maxDate = moment('2016-11-26', "YYYY MM DD").utc().format("YYYY");
+
+    d3.select('#slider3').call(d3.slider()
+        .axis(d3.svg.axis()
+	        .ticks(25)
+	        .tickSize(8)
+	        .tickFormat(d3.format(""))
+	    )
+	    .min(minDate)
+	    .max(maxDate)
+	    .value([1955, 1965])
+	    .step(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116)
+  	    .on("slide", function(evt, value) {
+		    d3.select('#slider3textmin').text(value[0]);  
+            d3.select('#slider3textmax').text(value[1]);
+    
+   	     var newData = _(site_data).filter( function(site) {
+             return (site.created_at >= value[0] && site.created_at <= value[1]);
+	            })
+	        displaySites(newData);
+        }));
+};
 
 
    
