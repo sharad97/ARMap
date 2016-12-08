@@ -34,5 +34,5 @@ https://sharad97.github.io/CMPS-165/d3.v4/scatterplot.html
 
 #Final 
 
-https://sharad97.github.io/CMPS-165/Final/final.html
+https://sharad97.github.io/CMPS-165/FINAL1/final.html
 
