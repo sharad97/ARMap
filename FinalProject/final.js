@@ -188,9 +188,9 @@ function ready(error, world, countryData) {
                 lat: parseFloat(d.latitude),
                 lng: parseFloat(d.longitude),
                 city: d.place,
-		        mag: d.mag,
-		        depth: d.depth,
-		        time: moment(d.time, "YYYY-MM-DD'T'HH:mm:ss.SSS'z'").utc().format("YYYY-MM-DD HH:mm:ss"), 
+		mag: d.mag,
+		depth: d.depth,
+		time: moment(d.time, "YYYY-MM-DD'T'HH:mm:ss.SSS'z'").utc().format("YYYY-MM-DD HH:mm:ss"), 
                 created_at: moment(d.time,"YYYY-MM-DD'T'HH:mm:ss.SSS'z'").utc().format("YYYY")
             };
         })
