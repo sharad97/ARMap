@@ -138,7 +138,7 @@ var countryTooltip = d3.select("body").append("div").attr("class", "countryToolt
 //Queue
 queue()
     .defer(d3.json, "world_110m.json")
-    .defer(d3.tsv, "world-110m-country-names.tsv")
+    .defer(d3.tsv, "country.tsv")
     .await(ready);
 
 //Main function
