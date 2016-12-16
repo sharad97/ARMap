@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+		<title>Earthquakes</title>
+        <script src="//d3js.org/d3.v3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+        <script src="//d3js.org/queue.v1.min.js"></script>
+        <script src="//d3js.org/topojson.v0.min.js"></script>
+        <link rel="stylesheet" href="final.css"/>   
+      
+<!--------------------Got this idea from source: --------------------->
+<!--- source link:http://bl.ocks.org/cmdoptesc/fc0e318ce7992bed7ca8 -->
+      
+        <script src="d3.slider.js"></script>
+        <link rel="stylesheet" href="d3.slider.css"/>
+<!-------------------------------------------------------------------->
+      
+    </head>
+    <body>
+        <div> 
+            <h1>Earthquake Since 1900 Above 7 Magnitude</h1>
+            <p>
+                Most earthquake occurs near tectonic plates fault lines. Since 1900, there has been 1347 earthquakes of magnitude 7 or greater and  5 earthquakes of magnitude 9 or greater.
+            </p>
+        </div>
+        
+        <h2><span id="slider3textmin">1900</span> - <span id="slider3textmax">2016</span></h2>
+        
+        <div id="slider3"></div>
+        
+        <div id="map"></div>
+        
+        <div><script type="text/javascript" src="final.js"></script></div>
+        
+        <div>
+            <p>Here is the link to learn what actions you can take to help yourself and your family to remain safe and healthy in the event of an earthquake: <a href="https://www.cdc.gov/disasters/earthquakes/index.html" target="_blank">www.cdc.gov/disasters/earthquakes</a></p>
+        </div>
+        
+        <div>
+            <div id="footer">   
+                <h3> Created by: </h3><p2> Sharad Shrestha in collaboration with Suresh K Lodha, Shobhit Maheshwari, and Ryan Brounley</p2>
+                <h3>Created for: </h3><p2>CMPS165, Data Programming for Visualization, Fall 2016</p2>
+                      <table>
+                          <tbody>
+                              <tr>
+                                  <td><h4>Files:</h4></td>
+                                  <td><h4>Data Sources:</h4></td>
+                                  <td><h4> Code Sources:</h4></td>
+                              </tr>
+                              <tr>
+                                  <td><li>d3.slider.js</li></td>
+                                  <td><li>Earthquake Data Catalog</li></td>
+                                  <td><li><a href="http://bl.ocks.org/KoGor/5994804" target="_blank" >bl.ocks.org/KoGor</a></li></td>
+                              </tr>
+                              <tr>
+                                  <td><li>d3.slider.css</li></td>
+                                  <td><a href="https://earthquake.usgs.gov/earthquakes/search/" target="_blank">https://earthquake.usgs.gov/earthquakes/search/</a></td>
+                                  <td><li><a href="http://benheb.github.io/d3.slider/" target="_blank" >benheb.github.io/d3.slider</a></li></td>
+                              </tr>
+                              <tr>
+                                  <td><li>final.css</li></td>
+                                  <td>&nbsp;</td>
+                                  <td><li><a href="http://bl.ocks.org/cmdoptesc/fc0e318ce7992bed7ca8" target="_blank" >bl.ocks.org/cmdoptesc/</a></li></td>
+                              </tr>
+                              <tr>
+                                  <td><li>final.html</li></td>
+                                  <td>&nbsp;</td>
+                                  <td>&nbsp;</td>
+                              </tr>
+                              <tr>
+                                  <td><li>final.js</li></td>
+                                  <td>&nbsp;</td>
+                                  <td>&nbsp;</td>
+                              </tr>
+                              <tr>
+                                  <td><li>rest_7771.txt</li></td>
+                                  <td>&nbsp;</td>
+                                  <td>&nbsp;</td>
+                              </tr>
+                              <tr>
+                                  <td><li>tectonics.json</li></td>
+                                  <td>&nbsp;</td>
+                                  <td>&nbsp;</td>
+                              </tr>
+                              <tr>
+                                  <td><li>world_110m.json</li></td>
+                                  <td>&nbsp;</td>
+                                  <td>&nbsp;</td>
+                              </tr>
+                              <tr>
+                                  <td><li>world-110m-country-names.tsv</li></td>
+                                  <td>&nbsp;</td>
+                                  <td>&nbsp;</td>
+                              </tr>
+                              <tr>
+                                  <td><li>ReadMe</li></td>
+                                  <td>&nbsp;</td>
+                                  <td>&nbsp;</td>
+                              </tr>
+                          </tbody>
+                </table>
+            </div>
+        </div>
+    </body>	
+</html>
+                  
+        
+   
