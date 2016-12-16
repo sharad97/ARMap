@@ -178,6 +178,7 @@ svg {
 
 #footer{
     background: lightgray;
+    border: 1px solid black;
     margin-top: 2px;
     margin-left: 325px; 
     margin-right: 325px;
