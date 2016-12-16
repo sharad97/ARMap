@@ -1,7 +1,7 @@
 //----------------Got this idea from homework------------------------//
 
 //Margin
-var margin = {top: 50, right: 22, bottom: 20, left: 20},
+var margin = {top: 50, right: 20, bottom: 20, left: 20},
     width = 1200 - margin.left - margin.right,
     height = 550 - margin.top - margin.bottom;
 
@@ -152,14 +152,13 @@ function ready(error, world, countryData) {
     })
 
     //Drawing countries on the globe
-    var country1 = g.selectAll(".country").data(countries)
+    g.selectAll(".country").data(countries)
         .enter()
         .insert("path")
         .attr("class", "country")
         .attr("title", function (d, i) { return d.name; })
         .attr("d", path)
         .text(function(d) {return (d.name)})
-        .on("click", function (d) { click(d); })
         .on("mouseover", function (d) {
             countryTooltip.text(countryById[d.id])
                     .style("left", (d3.event.pageX + 7) + "px")

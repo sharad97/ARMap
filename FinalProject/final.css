@@ -17,39 +17,6 @@ body {
 }
 
 
-
-.tooltip {
-	width: 221px;
-    height: auto;
-    font: 14px sans-serif;
-    font-weight: bold;
-    border-radius: 5px;
-    padding: 3px 3px 3px 3px;
-	position:absolute;			
-    background: SeaGreen;	
-  	border: solid black 2px;
-    border-radius: 8px;			
-    pointer-events: none;
-    margin-left: 15px;
-    color:white;
-}
-
-
-
-.tooltip b{
-  /* padding:5px;
-*/
-}
-
-
-
-.tooltip tr td{
- /* padding:5px;
-*/
-}
-
-
-
 .country {
   fill: #41ae76;
   stroke: #fff;
@@ -156,6 +123,38 @@ svg {
 
 
 
+.tooltip {
+	width: 221px;
+    height: auto;
+    font: 14px sans-serif;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 3px 3px 3px 3px;
+	position:absolute;			
+    background: SeaGreen;	
+  	border: solid black 2px;
+    border-radius: 8px;			
+    pointer-events: none;
+    margin-left: 15px;
+    color:white;
+}
+
+
+
+.tooltip b{
+  /* padding:5px;
+*/
+}
+
+
+
+.tooltip tr td{
+ /* padding:5px;
+*/
+}
+
+
+
 .countryTooltip {
   position: absolute;
   display: none;
@@ -171,13 +170,15 @@ svg {
 
 
 
+#cool {
+    border: 1px solid rgb(222, 222, 222);
+}
+
+
+
 #footer{
     background: lightgray;
-    border: 1px solid black;
-    margin-top: -2px;
-    padding-top: 0px;
-    padding-bottom: 5px;
-    padding-left: 25px;
+    margin-top: 2px;
     margin-left: 325px; 
     margin-right: 325px;
     margin-bottom: 25px;
@@ -194,10 +195,8 @@ table{
 h1{
     font-family:inherit;
     font-style: normal;
-    font-size: 4.0em;
-    line-height: 1.12 ;
-    letter-spacing: -0.9px;
-    margin-bottom: .5em;
+    font-size: 3.5em;
+    margin-bottom: 0.5em;
     margin-top: 0;
     color: black;
     text-align: center;
@@ -220,18 +219,10 @@ h4 {
 
 
 p{
-    border-top: 1px solid rgb(222, 222, 222);
     font-size: 15px;
     padding-left: 10px;
-    line-height: 1.7;
 }
 
-p6 {
-    border-bottom: 1px solid rgb(222, 222, 222);
-    font-size: 15px;
-    padding-left: 10px;
-    line-height: 3;
-}
 
 
 p2{
