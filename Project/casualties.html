@@ -1,0 +1,276 @@
+<!-- Got idea from http://nvd3.org -->
+<!DOCTYPE html>
+<html>
+	
+<meta charset="utf-8">
+    
+		
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.1.5/d3.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.13-beta/nv.d3.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+<link href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.14-beta/nv.d3.css" rel="stylesheet" type="text/css">
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css" rel="stylesheet">
+<style type="text/css">
+	h1{
+		font-size: 20px;
+		text-align: center;
+	}
+</style>
+	
+<body>
+<h1>Global Number Of Deaths Per Decade From Natural Catastrophes, 1900-2013</h1>	
+<div>
+<div class="container with-3d-shadow with-transitions">
+        <div class="row">
+        <div class="span5">
+          <svg id="chart1" style="height:600px ; width:560px"></svg>
+        </div>
+ 
+        <div class="span3">
+          <svg id="chart2" style="height:260px "></svg>
+        </div>
+        <div class="span3">
+          <svg id="chart3" style="height:260px "></svg>
+        </div>
+        <div class="span3">
+          <svg id="chart4" style="height:240px"></svg>
+        </div>
+		<div class="span3">
+          <svg id="chart5" style="height:240px"></svg>
+        </div>
+      </div>
+
+      <hr>
+
+    </div>
+
+</div>
+
+		
+<script>
+
+var myall = [   {
+    key    : "Wildfire",
+    values : []
+  },
+  {
+    key    : "Volcano",
+    values : []
+  },
+  {
+    key    : "Flood",
+    values : []
+  },
+  {
+    key    : "Extreme Temp",
+    values : []
+  },
+  {
+    key    : "Epidemic",
+    values : []
+  },
+  {
+    key    : "Earthquake",
+    values : []
+  },
+  {
+    key    : "Drought",
+    values : []
+  },
+  {
+    key    : "Storm",
+    values : []
+  }
+];
+
+
+d3.csv("casualties-data.csv", function (error, csv) {
+  if (error) return console.log("there was an error loading the csv: " + error);
+  console.log("there are " + csv.length + " elements in my csv set");
+
+//  csv.sort(function(a,b) {return a.length-b.length;});
+
+var mmm = ["Wildfire_killed_byDec","Volcano_killed_byDec","Flood_killed_byDec","Extreme_temp_killed_byDec","Epidemic_killed_byDec","Earthquake_killed_byDec","Drought_killed_byDec","Storm_killed_byDec"];
+
+for (var i = 0; i < mmm.length; i++) {
+ myall[i].values = csv.map(function(d) { return [ d["decade"], +d[mmm[i]] ]; });
+};
+
+
+var colors = d3.scale.ordinal()
+        .range(["#6a3d9a", "#104E8B","#ff7f00","orange", "#e41a1c","#1f78b4","#388E8E", "lightblue","darkred","#388E8E", "#528B8B"])
+        .domain(d3.range(0,11));
+//var colors = d3.scale.category20();
+	  
+keyColor = function(d, i) {return colors(d.key)};
+
+
+var chart;
+	// --------------------------- EXAMPLE Main ---------------------------------
+
+nv.addGraph(function() {
+    chart = nv.models.multiBarChart()
+	.stacked(true).margin({top: 30, right: 60, bottom: 95, left: 45}) 
+                .x(function(d) { return d[0] })
+                .y(function(d) { return d[1] })
+                		.tooltipContent(function(key, x, y, e, graph) {return '<h3>' + key + '</h3>' +
+               '<p>' +  y + ' in ' + x + '</p>'			})
+		        .rotateLabels(45)
+		        .groupSpacing(0.2)
+				.reduceXTicks(false)
+                .color(keyColor);
+  chart.xAxis; //      .tickFormat(function(d) { return d3.time.format('%Y')(new Date(d)) });
+	
+	  chart.yAxis
+  	  .axisLabelDistance(50)
+		.tickFormat(d3.format('.0f'));
+
+	  chart.legend.dispatch.on('legendClick.updateExamples', function() {
+      setTimeout(function() {
+        chart2.update();
+        chart3.update();
+        chart4.update();
+		chart5.update();
+      }, 100);
+    });
+
+   chart1 = chart;
+	  
+  d3.select('#chart1')
+    .datum(myall)
+      .transition().call(chart);
+  
+  nv.utils.windowResize(chart.update);
+  
+});
+	
+	// --------------------------- EXAMPLE ONE ---------------------------------
+
+	
+nv.addGraph(function() {  
+    chart = nv.models.lineChart()
+                .x(function(d) { return d[0] })
+                .y(function(d) { return d[1] })
+				  .showLegend(false)
+                  .useInteractiveGuideline(true)
+	                .color(keyColor)
+
+                  ;
+
+    chart.xAxis // chart sub-models (ie. xAxis, yAxis, etc) when accessed directly, return themselves, not the partent chart, so need to chain separately
+        .tickFormat(d3.format(''));
+
+    chart.yAxis
+        .tickFormat(d3.format(',.0f'));
+
+    d3.select('#chart2')
+    .datum(myall)
+      .transition().call(chart);
+
+    //TODO: Figure out a good way to do this automatically
+    nv.utils.windowResize(chart.update);
+ chart2 = chart;
+
+    return chart;
+  });
+
+	
+// --------------------------- EXAMPLE TWO ---------------------------------
+
+
+
+  nv.addGraph(function() {
+      var chart = nv.models.stackedAreaChart()
+	  			.x(function(d) { return d[0] })
+                .y(function(d) { return d[1] })
+                  .showControls(false)
+                  .showLegend(false)
+                  .useInteractiveGuideline(true)
+	                  .color(keyColor)
+
+                  .style('stream');
+
+      chart.yAxis
+          .showMaxMin(false)
+          .tickFormat(d3.format(',.0f'));
+
+      d3.select("#chart3")
+		  .datum(myall)
+		  .transition().call(chart);
+
+      nv.utils.windowResize(chart.update);
+
+
+ 
+
+      chart3 = chart;
+	  
+      return chart;
+  });
+
+
+
+  // --------------------------- EXAMPLE THREE ---------------------------------
+
+
+  nv.addGraph(function() {
+      var chart = nv.models.stackedAreaChart()
+                  .x(function(d) { return d[0] })
+                .y(function(d) { return d[1] })
+                  .showControls(false)
+                  .showLegend(false)
+                  .useInteractiveGuideline(true)
+	                  .color(keyColor)
+
+                  .style('stacked');
+
+      chart.yAxis
+          .tickFormat(d3.format(',.0f'));
+
+      d3.select("#chart4")
+		  .datum(myall)
+		  .transition().call(chart);
+
+      nv.utils.windowResize(chart.update);
+
+
+
+
+      chart4 = chart;
+	 
+
+      return chart;
+  });
+  // --------------------------- EXAMPLE four ---------------------------------
+
+	
+nv.addGraph(function() {
+    chart = nv.models.scatterChart()
+                .x(function(d) { return d[0] })
+                .y(function(d) { return d[1] })
+				.showLegend(false)
+                .color(keyColor)
+				.showControls(false);
+			
+				chart.xAxis.tickFormat(d3.format(''));
+
+			    chart.yAxis
+					.tickFormat(d3.format(',.0f'));
+	  
+  d3.select('#chart5')
+    .datum(myall)
+      .transition().call(chart);
+  
+  nv.utils.windowResize(chart.update);
+	
+      chart5 = chart;
+  
+  return chart;
+});	
+	
+// end read csv
+});
+</script>
+</body>
+</html>
