@@ -173,7 +173,7 @@ function ready(error, world, countryData) {
             countryTooltip.style("opacity", 0)
                     .style("display", "none");
         });
-}
+
 //--------------------------------------------------------------------//
 
 
@@ -288,5 +288,6 @@ var displaySites = function (data) {
 	    displaySites(newData);
     }));
 });
+}
 //--------------------------------------------------------------------//
 
