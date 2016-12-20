@@ -31,6 +31,10 @@ https://sharad97.github.io/CMPS-165/d3.v4/plant.html
 
 https://sharad97.github.io/CMPS-165/d3.v4/scatterplot.html
 
+https://sharad97.github.io/CMPS-165/d3.v4/barchart.html
+
+
+
 
 #Final 
 
