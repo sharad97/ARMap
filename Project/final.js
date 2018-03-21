@@ -17,11 +17,17 @@ var path = d3.geo.path()
     .projection(projection);
 
 //SVG container
-var svg = d3.select("#map").append("svg")
+var svg = d3.select("#map")
+        .append("svg")
         .attr("width", width)
         .attr("height", height)
 		.call(d3.behavior.zoom().scaleExtent([1, 7]).on("zoom", redraw))
-		.append("g");
+		.append("g")
+        .attr("preserveAspectRatio", "xMinYMin meet")
+        .attr("viewBox", "0 0 300 300")
+        .classed("svg-content", true);
+
+
 
 //Zoom
 function redraw() {
