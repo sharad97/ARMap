@@ -9,8 +9,6 @@ body {
 
 #map {
   border:2px solid #000;
-  width:1160px;
-  height:480px;
   margin: auto; 	
 }
 
@@ -103,10 +101,7 @@ path {
 }
 
 
-svg {
-    margin: 0 auto;
-    display: block;
-}
+
 
 
 .sphere {
