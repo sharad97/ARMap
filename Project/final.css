@@ -11,7 +11,7 @@ body {
   border:2px solid #000;
   width:1160px;
   height:480px;
-  margin: 5em; 	
+  margin: auto; 	
 }
 
 
@@ -91,10 +91,9 @@ path {
 }
 
 #slider3 {
-  margin: 10px 0px 10px 50px;
+  margin: 25px auto 40px auto;
   width: 1150px;
 }
-
 
 
 .tectonic {
@@ -156,6 +155,7 @@ svg {
 
 #cool {
     border: 1px solid lightgray;
+    margin: auto;
 }
 
 
@@ -163,21 +163,21 @@ svg {
 #footer{
     background: lightgray;
     border: 1px solid black;
-    margin-top: 2px;
-    margin-left: 325px;
-    margin-right: 300px;
-    margin-bottom: 25px;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
 }
 
-
-
+/*
 #coll{
-    margin-left: 55px;
+    margin-left: auto;
 }
 
 #coll1{
     margin-left: -20px;
 }
+*/
 
 h1{
     font-family:inherit;
@@ -218,6 +218,9 @@ p2{
 
 }
 
+table{
+    margin: auto;
+}
 
 
 a:link {
