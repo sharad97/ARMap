@@ -3,7 +3,7 @@
 
 //Margin
 var margin = {top: 50, right: 20, bottom: 20, left: 20},
-    width = 1200 - margin.left - margin.right,
+    width = 1000 - margin.left - margin.right,
     height = 550 - margin.top - margin.bottom;
 
 //Set the projection methods for the world map
@@ -21,11 +21,13 @@ var svg = d3.select("#map")
         .append("svg")
         .attr("width", width)
         .attr("height", height)
-		.call(d3.behavior.zoom().scaleExtent([1, 7]).on("zoom", redraw))
+		.call(d3.behavior.zoom().scaleExtent([-1, 7]).on("zoom", redraw))
 		.append("g")
         .attr("preserveAspectRatio", "xMinYMin meet")
         .attr("viewBox", "0 0 300 300")
-        .classed("svg-content", true);
+        .classed("svg-content", true)
+        .classed("svg-container", true);
+
 
 
 
@@ -53,11 +55,13 @@ svg.append("path")
 
 //----------------Got this idea from homework-------------------------//
 
-var g = svg.append("g");
+var g = svg.append("g")
+.attr("width", width)
+        .attr("height", height);
 
 //Draw legend colored circles
 g.append("rect")
-        .attr("x", width - 1130)
+        .attr("x", width - 930)
         .attr("y", height - 170)
         .attr("width", 60)
         .attr("height", 130)
@@ -67,27 +71,27 @@ g.append("rect")
 g.append("circle")
     	.attr("class", "dot")
 		.attr('r', 14)
-		.attr("cx", width - 1108)
+		.attr("cx", width - 908)
         .attr("cy", height - 150)
 		.style("fill", "red");
 		
 g.append("circle")
 		.attr("class", "dot")
 		.attr('r', 8.5)
-        .attr("cx", width - 1108)
+        .attr("cx", width - 908)
         .attr("cy", height - 100)
         .style("fill", "red");
 	
 g.append("circle")
 		.attr("class", "dot")
 		.attr('r', 2.7)
-        .attr("cx", width - 1108)
+        .attr("cx", width - 908)
         .attr("cy", height - 60)
         .style("fill", "red");
 
 g.append("text")
         .attr("class", "label")
-        .attr("x", width - 1085)
+        .attr("x", width - 885)
         .attr("y", height - 146.5)
         .style("text-anchor", "end")
         .text("9")
@@ -95,7 +99,7 @@ g.append("text")
 
 g.append("text")
         .attr("class", "label")
-        .attr("x", width - 1085)
+        .attr("x", width - 885)
         .attr("y", height - 95)
         .style("text-anchor", "end")
         .text("8")
@@ -103,7 +107,7 @@ g.append("text")
 
 g.append("text")
         .attr("class", "label")
-        .attr("x", width - 1085)
+        .attr("x", width - 885)
         .attr("y", height - 56)
         .style("text-anchor", "end")
         .text("7")
@@ -111,7 +115,7 @@ g.append("text")
   
 g.append("text")
         .attr("class", "label")
-        .attr("x", width - 1102)
+        .attr("x", width - 902)
         .attr("y", height - 15)
         .style("text-anchor", "middle")
         .style("fill", "Green")
