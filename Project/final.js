@@ -2,9 +2,9 @@
 //----------------Got this idea from homework------------------------//
 
 //Margin
-var margin = {top: 0, right: 0, bottom: 0, left: 0},
-    width = window.innerWidth - margin.left - margin.right,
-    height = window.innerHeight - margin.top - margin.bottom;
+var margin = {top: 50, right: 20, bottom: 20, left: 20},
+    width = 1000 - margin.left - margin.right,
+    height = 550 - margin.top - margin.bottom;
 
 //Set the projection methods for the world map
 var projection = d3.geo.equirectangular()
