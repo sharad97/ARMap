@@ -17,7 +17,7 @@ var path = d3.geo.path()
     .projection(projection);
 
 //SVG container
-var svg = d3.select("#map")
+var svg = d3.select("div#container")
         .append("svg")
         .attr("width", width)
         .attr("height", height)
